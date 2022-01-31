@@ -1,4 +1,4 @@
-# Typecho Theme VOID 3.4.0
+# Typecho Theme VOID 3.5.1
 
 > ✏ 一款简洁优雅的 Typecho 主题
 
@@ -6,7 +6,7 @@
 
 ![](https://raw.githubusercontent.com/AlanDecode/Typecho-Theme-VOID/master/screenshot.png)
 
-[![build status](https://img.shields.io/travis/AlanDecode/Typecho-Theme-VOID/source.svg?style=flat-square)](https://travis-ci.org/AlanDecode/Typecho-Theme-VOID) [![downloads](https://img.shields.io/github/downloads/AlanDecode/Typecho-Theme-VOID/total.svg?style=flat-square)](https://github.com/AlanDecode/Typecho-Theme-VOID/releases) [![](https://img.shields.io/github/release/AlanDecode/Typecho-Theme-VOID.svg?style=flat-square)](https://github.com/AlanDecode/Typecho-Theme-VOID/releases) ![](https://img.shields.io/github/license/AlanDecode/Typecho-Theme-VOID.svg?style=flat-square)
+[![Build](https://github.com/AlanDecode/Typecho-Theme-VOID/workflows/Build/badge.svg)](https://github.com/AlanDecode/Typecho-Theme-VOID/actions) [![downloads](https://img.shields.io/github/downloads/AlanDecode/Typecho-Theme-VOID/total.svg?style=flat-square)](https://github.com/AlanDecode/Typecho-Theme-VOID/releases) [![](https://img.shields.io/github/release/AlanDecode/Typecho-Theme-VOID.svg?style=flat-square)](https://github.com/AlanDecode/Typecho-Theme-VOID/releases) ![](https://img.shields.io/github/license/AlanDecode/Typecho-Theme-VOID.svg?style=flat-square)
 
 ## 特性
 
@@ -15,7 +15,6 @@
 * 响应式设计
 * PJAX 无刷新体验
 * AJAX 评论
-* 前台管理评论（删除、待审、标为垃圾）
 * 前台无跳转登陆（兼容 PJAX）
 * 自动夜间模式
 * 优秀的可读性
@@ -155,13 +154,15 @@
 <details><summary>页面空白</summary><br>
 
 * 首先检查是否有插件重复引入了 JQuery，若有，在插件设置页面关闭。
-* 另外，推荐使用 PHP 7.0 及以上版本搭配 MySQL 数据库。PHP 5.6 或者更低版本可能出现未知问题（并且我不会去修复）。
+* 另外，推荐使用 PHP 7.0 及以上版本搭配 MySQL 数据库。PHP 5.6 或者更低版本以及其它数据库可能出现未知问题（并且我不会去修复）。
 
 </details>
 
 ## 更新
 
-同[开始使用](#开始使用)，区别是你可以直接覆盖主题文件，不禁用主题，这样你的主题设置就不会丢失。
+同[开始使用](#开始使用)，区别是你可以直接覆盖主题文件。大多数情况下无需禁用主题，这样你的主题设置就不会丢失。
+
+某些版本由于改用幅度较大需要重启主题与插件，请参见对应版本的发布日志。
 
 ## 开发与自定义
 
@@ -206,27 +207,32 @@ gulp build
 
 ## 更新日志
 
-**🍰 2019-10-26 Version 3.4.0**
+**🍰 2020-07-04 Version 3.5.1**
 
 *该版本依赖 VOID 插件 1.20 及以上版本，请先禁用原插件，上传新插件后重新启用插件*
 
-* 新增：为图片获取基础信息，详见[关于 VOID 主题自动获取图片基础信息](https://blog.imalan.cn/archives/void-fetch-img-basic-info/)
-* 新增：新的平滑滚动效果
-* 优化：通过 iframe 嵌入 Bilibili 播放器时可自适应宽高
-* 优化：图片懒加载功能
-* 优化：夜间模式下 APlayer 播放器样式
-* 优化：内容解析性能
-* 调整：替换默认西文字体为 Droid Serif
-* 修复：PJAX 跳转后首页图片懒加载可能失效的问题
-* 修复：当文章中存在相同的标题时无法点击目录跳转的问题
-* 修复：修复一个可能导致插件启用失败的问题
-* 修复：不同时区导致建站时间计算不准确的问题
-* 修复：懒加载与 Google Ads 冲突的问题
-* 修复：不正确的头图高度
-* 修复：未启用插件时投票功能未被禁用的问题
-* 移除：站点背景图设置
+* 修复：iframe 尺寸错误（#42）
+* 修复：归档页面显示未发布的文章（#45）
 
-注意，3.4.0 版本主题依赖 1.20 及以上版本插件，请先禁用原插件，上传新版插件后重新启用。
+**🍰 2020-05-01 Version 3.5.0**
+
+*该版本依赖 VOID 插件 1.20 及以上版本，请先禁用原插件，上传新插件后重新启用插件*
+
+* 新增：[高级设置]图片懒加载渐变（需要 CDN 支持）
+* 新增：JSON-LD 结构化数据支持
+* 新增：重新设计的 404 页面
+* 新增：[高级设置]站点标题设置自定义字体
+* 优化：Bilibili 播放器自适应
+* 优化：图题不再影响灯箱展开
+* 调整：默认西文字体替换为 OpenSans
+* 调整：简化头图设置
+* 修复：某些情况下懒加载可能不触发的问题
+* 修复：懒加载导致归档页面错乱
+* 修复：Safari 平滑滚动无法打断, thank @Reedo0910
+* 修复：[#32](https://github.com/AlanDecode/Typecho-Theme-VOID/issues/32)
+* 修复：[#34](https://github.com/AlanDecode/Typecho-Theme-VOID/issues/34)
+* 移除：Microdata
+* 其它细节优化
 
 从 2.2 版本起，主题部分功能需要配套插件支持，例如文章点赞、浏览量统计、字数统计等。**请先卸载**原来的 Likes、TePostViews 插件，否则数据会出现错误！TePostViews 插件卸载前请设置为**卸载后保留数据**，以防丢失浏览数据。
 
@@ -240,7 +246,7 @@ gulp build
 
 ### 其他
 
-[RAW](https://github.com/AlanDecode/Typecho-Theme-RAW) | [Mirages](https://get233.com/archives/mirages-intro.html) | [handsome](https://www.ihewro.com/archives/489/) | [Card](https://blog.shuiba.co/bitcron-theme-card) | [Casper](https://github.com/TryGhost/Casper) | [Typlog](https://typlog.com/)
+[RAW](https://github.com/AlanDecode/Typecho-Theme-RAW) | [Mirages](https://get233.com/archives/mirages-intro.html) | [handsome](https://www.ihewro.com/archives/489/) | [Card](https://blog.shuiba.co/bitcron-theme-card) | [Casper](https://github.com/TryGhost/Casper) | [Typlog](https://typlog.com/) | [FORMA](https://justgoodthemes.com/ghost-themes/forma/)
 
 ## 捐助
 

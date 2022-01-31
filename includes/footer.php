@@ -11,10 +11,10 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $setting = $GLOBALS['VOIDSetting'];
 ?>
         <footer>
-            <div class="container">
+            <div class="container wide">
                 <section>
-                    <p>感谢陪伴：<span id="uptime"></span></p>
                     <p>© <?php echo date('Y '); ?> <span class="brand"><?php echo $this->options->title; ?></span></p>
+                    <p>感谢陪伴：<span id="uptime"></span></p>
                 </section>
                 <section>
                     <p>Powered by <a href="http://typecho.org/">Typecho</a> • <a href="https://blog.imalan.cn/archives/247/">Theme VOID</a></p>
@@ -134,14 +134,14 @@ $setting = $GLOBALS['VOIDSetting'];
         <?php if($setting['enableMath']): ?>
         <script src='<?php Utils::indexTheme('/assets/libs/mathjax/2.7.4/MathJax.js'); ?>'></script>
         <?php endif; ?>
-        <script src="<?php Utils::indexTheme('/assets/VOID-e996f54ba4.js'); ?>"></script>
+        <script src="<?php Utils::indexTheme('/assets/VOID-e344978213.js'); ?>"></script>
         <script>
         if($(".OwO").length > 0){
             new OwO({
                 logo: 'OωO',
                 container: document.getElementsByClassName('OwO')[0],
                 target: document.getElementsByClassName('input-area')[0],
-                api: '<?php Utils::indexTheme('/assets/libs/owo/OwO_02.json'); ?>',
+                api: '<?php Utils::indexTheme('/assets/libs/owo/OwO_03.json'); ?>',
                 position: 'down',
                 width: '400px',
                 maxHeight: '250px'

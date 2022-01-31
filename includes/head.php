@@ -56,7 +56,7 @@ if (isset($_POST['void_action'])) {
 
     <!--CSS-->
     <link rel="stylesheet" href="<?php Utils::indexTheme('/assets/bundle-1e9bf597b1.css');?>">
-    <link rel="stylesheet" href="<?php Utils::indexTheme('/assets/VOID-f37eaafb35.css');?>">
+    <link rel="stylesheet" href="<?php Utils::indexTheme('/assets/VOID-c07295eada.css');?>">
 
     <!--JS-->
     <script src="<?php Utils::indexTheme('/assets/bundle-header-9977c8fbf5.js'); ?>"></script>
@@ -87,7 +87,7 @@ if (isset($_POST['void_action'])) {
         isDev: true
     }
     </script>
-    <script src="<?php Utils::indexTheme('/assets/header-ea9c1ff326.js'); ?>"></script>
+    <script src="<?php Utils::indexTheme('/assets/header-dba1d6f214.js'); ?>"></script>
     
     <?php echo $setting['head']; ?>
     <style>
@@ -104,7 +104,21 @@ if (isset($_POST['void_action'])) {
         <?php endif; ?>
     </style>
 
-    <link id="stylesheet_droid_serif" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700&display=swap" rel="stylesheet">
+    <?php if (array_key_exists('src', $setting['brandFont']) && !empty($setting['brandFont']['src'])): ?>
+    <style>
+    @font-face {
+        font-family: "BrandFont";
+        src: url("<?php echo $setting['brandFont']['src']; ?>");
+    }
+    .brand {
+        font-family: BrandFont, sans-serif;
+        font-style: <?php echo $setting['brandFont']['style']; ?>!important;
+        font-weight: <?php echo $setting['brandFont']['weight']; ?>!important;
+    }
+    </style>
+    <?php endif; ?>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">
     <?php if(Utils::isSerif($setting)): ?>
         <link id="stylesheet_noto" href="https://fonts.googleapis.com/css?family=Noto+Serif+SC:300,400,700&display=swap&subset=chinese-simplified" rel="stylesheet">
     <?php endif; ?>

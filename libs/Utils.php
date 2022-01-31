@@ -138,11 +138,11 @@ class Utils
     public static function addButton()
     {
         echo '<script src="';
-        self::indexTheme('/assets/libs/owo/owo_02.js');
+        self::indexTheme('/assets/libs/owo/owo_03.js');
         echo '"></script>';
 
         echo '<script src="';
-        self::indexTheme('/assets/editor-d6bdd77f4b.js');
+        self::indexTheme('/assets/editor-ac76cef185.js');
         echo '"></script>';
 
         echo '<link rel="stylesheet" href="';
@@ -283,7 +283,6 @@ class Utils
             'serifincontent' => false,
             'pjax' => false,
             'pjaxreload' => '',
-            'bannerStyle' => 0,
             'indexStyle' => 0,
             'lazyload' => false,
             'indexBannerTitle' => '',
@@ -306,13 +305,17 @@ class Utils
         $themeSetting['colorScheme'] = intval($themeSetting['colorScheme']);
         $themeSetting['pjax'] = boolval($themeSetting['pjax']);
         $themeSetting['serifincontent'] = boolval($themeSetting['serifincontent']);
-        $themeSetting['bannerStyle'] = intval($themeSetting['bannerStyle']);
         $themeSetting['indexStyle'] = intval($themeSetting['indexStyle']);
 
         // 高级设置
         $advanceSetting = array(
             'nav' => '',
             'name' => '',
+            'brandFont' => array(
+                'src' => '',
+                'style' => 'normal',
+                'weight' => 'normal'
+            ),
             'desktopBannerHeight' => '',
             'mobileBannerHeight' => '',
             'twitterId' => '',
@@ -325,14 +328,15 @@ class Utils
             'macStyleCodeBlock' => true,
             'lineNumbers' => true,
             'parseFigcaption' => true,
-            'showHeadlineInPost' => true,
             'darkModeTime' => array (
                 'start' => 22.0,
                 'end' => 7.0
             ),
             'link' => array(),
             'commentFoldThreshold' => array(5, 1.5),
-            'commentNotification' => ''
+            'commentNotification' => '',
+            'bluredLazyload' => false,
+            'CDNType' => array()
         );
 
         if(!empty($options->advance)){

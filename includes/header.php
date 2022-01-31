@@ -10,20 +10,8 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 $setting = $GLOBALS['VOIDSetting'];
 $banner = $setting['defaultBanner'];
-if ($this->is('post')) {
-    if ($this->fields->bannerStyle > 0) {
-        $setting['bannerStyle'] = $this->fields->bannerStyle-1;
-    }
-    if ($setting['bannerStyle'] == 4) { // 强制不显示
-        $banner = '';
-    } else {
-        $banner = $this->fields->banner;
-        if($setting['bannerStyle'] == 1)
-            $banner = '';
-    }
-}
-if($this->is('page')){
-    $banner = $this->fields->banner;
+if($this->is('post') || $this->is('page')) {
+    $banner = $this->fields->bannerStyle < 2 ? $this->fields->banner : '';
 }
 ?>
 
@@ -50,6 +38,9 @@ if($this->is('page')){
         }
         if ($setting['indexStyle'] == 1) { // 强制不显示
             echo ' single-col';
+        }
+        if ($setting['bluredLazyload']) { // 强制不显示
+            echo ' bluredLazyload';
         }
         if(Helper::options()->lazyload == '1') {
             echo ' lazyload-img';
